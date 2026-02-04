@@ -1,14 +1,16 @@
 import { Link } from "react-router";
 import logo from "../assets/logo.png";
 
-function Header() {
+function Header({ cartItems = [] }) {
+  const cartCount = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0
+  );
+
   return (
     <header className="bg-white shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-        >
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={logo}
             alt="Brand Logo"
@@ -29,9 +31,14 @@ function Header() {
 
           <Link
             to="/cart-item"
-            className="text-gray-600 hover:text-yellow-600 font-medium transition"
+            className="relative text-gray-600 hover:text-yellow-600 font-medium transition"
           >
             Cart
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-4 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+                {cartCount}
+              </span>
+            )}
           </Link>
         </div>
       </nav>

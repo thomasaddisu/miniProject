@@ -1,29 +1,4 @@
-import { useState } from "react";
-
-function CartPage({ cartItems: initialCart }) {
-  const [cartItems, setCartItems] = useState(
-    initialCart.map((item) => ({ ...item, quantity: item.quantity || 1 }))
-  );
-
-  const increaseQty = (id) =>
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-
-  const decreaseQty = (id) =>
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
-          : item
-      )
-    );
-
-  const removeItem = (id) =>
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-
+function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
