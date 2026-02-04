@@ -1,7 +1,13 @@
-function HomePage() {
+import ProductGrid from "../components/productGrid";
+import products from "../data/products.";
+
+function HomePage({  updateCartItems}) {
+
+
+
     return(
         <>
-        home page
+        <ProductGrid products={products}  updateCartItems={updateCartItems}/>
         </>
     )
 }

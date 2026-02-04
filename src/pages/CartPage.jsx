@@ -2,7 +2,6 @@
 function CartPage() {
     return(
         <>
-        cart page
         </>
     )
 }
