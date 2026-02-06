@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(()=>{
+    try {
+          const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error("Error parsing cartItems from localStorage:",error)
+      return [];
+    }
+
+  });
+
+  useEffect(()=>{
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  }, [cartItems])
 
   const addToCart = (product) => {
     const existing = cartItems.find((p) => p.id === product.id);
