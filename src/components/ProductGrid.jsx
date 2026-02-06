@@ -7,7 +7,7 @@ function ProductGrid({
 }) {
   const [addedProductId, setAddedProductId] = useState(null);
   const [outStockProductId, setOutStockProductId] = useState(null);
-
+  const [searchQuery, setSearchQuery] = useState("");
   const handleAddToCart = (product) => {
     updateCartItems(product);
     setAddedProductId(product.id);
@@ -25,9 +25,29 @@ function ProductGrid({
     setOutStockProductId(product.id)
   };
 
+  const filterProduct = products.filter(product=>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   return (
+    <div>
+          <div className="w-full  mx-auto mb-6">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchQuery}
+            className="w-full border rounded-lg py-2 pl-10 pr-4 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+            onChange={(e)=>setSearchQuery(e.target.value)}
+          />
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+            🔍
+          </span>
+        </div>
+      </div>
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {products.map((product) => {
+
+      {filterProduct.map((product) => {
         return (
           <div
             key={product.id}
@@ -88,7 +108,10 @@ function ProductGrid({
         );
       })}
     </div>
+    </div>
+
   );
 }
 
 export default ProductGrid;
+
