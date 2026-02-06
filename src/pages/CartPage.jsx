@@ -4,6 +4,12 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
     0
   );
 
+  const taxRate = 0.05;
+  const tax = totalPrice * taxRate;
+  const total = totalPrice + tax;
+
+
+
   if (cartItems.length === 0)
     return (
       <div className="text-center mt-10 text-lg font-semibold text-gray-700">
@@ -13,8 +19,29 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
+      <div className="flex flex-col lg:flex-row justify-between items-start mb-6 gap-6">
+        <h1 className="text-2xl font-bold">Your Cart</h1>
+
+        
+        <div className="w-full lg:w-64  rounded-lg p-4 shadow-sm bg-gray-50">
+          <div className="flex justify-between mb-2 text-gray-700">
+            <span>Subtotal</span>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between mb-2 text-gray-700">
+            <span>Tax (8%)</span>
+            <span>${tax.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between text-xl font-bold text-gray-900 border-t pt-2">
+            <span>Total</span>
+            <span>${total.toFixed(2)}</span>
+          </div>
+        </div>
+      </div>
+      
+      
       <div className="space-y-6">
+        
         {cartItems.map((item) => (
 <div
   key={item.id}
@@ -62,12 +89,10 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
 </div>
 
         ))}
-      </div>
-      <div className="mt-6 text-right text-xl font-bold">
-        Total: ${totalPrice.toFixed(2)}
-      </div>
+
     </div>
-  );
+    </div>
+  )
 }
 
 export default CartPage;

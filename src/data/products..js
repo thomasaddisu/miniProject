@@ -146,3 +146,20 @@ export const products = [
 ];
 
 export default products;
+
+
+
+
+
+
+
+
+
+
+
+    <div className="p-6 max-w-6xl mx-auto">
+      {/* Header + Summary */}
+
+
+    </div>
+
