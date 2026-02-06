@@ -15,7 +15,7 @@ function ProductGrid({ products = [], updateCartItems = () => {} }) {
       {products.map((product) => (
         <div
           key={product.id}
-          className="flex flex-col rounded-xl border bg-white p-4 shadow-sm transition hover:shadow-lg"
+          className="flex flex-col  bg-white p-4 shadow-sm transition hover:shadow-lg"
         >
           <div className="mb-4 h-40 w-full overflow-hidden rounded-lg bg-gray-100">
             <img
