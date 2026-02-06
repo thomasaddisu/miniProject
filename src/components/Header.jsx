@@ -35,7 +35,7 @@ function Header({ cartItems = [] }) {
           >
             Cart
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-4 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full">
+              <span className="absolute -top-2 -right-4 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-yellow-400 rounded-full">
                 {cartCount}
               </span>
             )}
@@ -47,3 +47,4 @@ function Header({ cartItems = [] }) {
 }
 
 export default Header;
+
