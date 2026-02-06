@@ -96,3 +96,4 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
 }
 
 export default CartPage;
+

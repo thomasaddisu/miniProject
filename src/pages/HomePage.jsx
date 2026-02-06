@@ -14,3 +14,5 @@ function HomePage({  updateCartItems, cartItems=[]}) {
 
 export default HomePage;
 
+
+

@@ -1,4 +1,4 @@
-export const products = [
+const products = [
 
   {
     id: 1,
@@ -100,7 +100,7 @@ export const products = [
     category: "home",
     price: 44.99,
     description: "Set of 2 decorative throw pillows with soft covers.",
-    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=500&h=500&fit=crop",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZmqegBVKg3N-WjOh3WXLxtW2iH-Q1hKkblQ&s",
     stock: 22
   },
   {
