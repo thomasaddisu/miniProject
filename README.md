@@ -24,9 +24,3 @@ This is a React-based e-commerce application that allows users to browse product
 - **React Router** for routing between pages  
 - **Tailwind CSS** for styling  
 - **JavaScript** for interactivity and chatbot rules  
-
-## Getting Started
-
-1. Clone the repository:  
-   ```bash
-   git clone <your-repo-url>
