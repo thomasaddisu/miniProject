@@ -1,7 +1,10 @@
 import { useState } from "react";
+import Checkout from "./Checkout";
 
 function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
   const [outStockProductId, setOutStockProductId] = useState(null);
+  const [showCheckout, setShowCheckout] = useState(false);
+
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -67,9 +70,11 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
                 ${item.price.toFixed(2)}
               </p>
             </div>
-                        {outStockProductId === item.id && 
-            <span className="text-sm text-red-500">Out of Stock Max Stock-{item.stock}</span>
-            }
+            {outStockProductId === item.id && (
+              <span className="text-sm text-red-500">
+                Out of Stock Max Stock-{item.stock}
+              </span>
+            )}
 
             <div className="flex flex-col items-end sm:flex-row sm:items-center gap-2">
               <div className="flex items-center gap-2">
@@ -99,9 +104,25 @@ function CartPage({ cartItems, increaseQty, decreaseQty, removeItem }) {
                 Remove
               </button>
             </div>
-            
           </div>
         ))}
+        <div className="text-right">
+          <div className="text-right">
+            <button
+              onClick={() => setShowCheckout(true)}
+              className="px-4 py-2 bg-yellow-400 text-white rounded hover:bg-yellow-500"
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+
+          {showCheckout && (
+            <Checkout
+              cartItems={cartItems}
+              onClose={() => setShowCheckout(false)}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
