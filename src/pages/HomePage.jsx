@@ -1,4 +1,4 @@
-import ProductGrid from "../components/productGrid";
+import ProductGrid from "../components/ProductGrid";
 import products from "../data/products.";
 
 function HomePage({  updateCartItems, cartItems=[]}) {
