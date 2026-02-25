@@ -28,6 +28,12 @@ function Header({ cartItems = [] }) {
           >
             Home
           </Link>
+                    <Link
+            to="/about"
+            className="text-gray-600 hover:text-yellow-600 font-medium transition"
+          >
+            About
+          </Link>
 
           <Link
             to="/cart-item"
@@ -40,6 +46,7 @@ function Header({ cartItems = [] }) {
               </span>
             )}
           </Link>
+
         </div>
       </nav>
     </header>

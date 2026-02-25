@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ChatBot from "./components/ChatBot";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   const [cartItems, setCartItems] = useState(()=>{
@@ -73,6 +74,10 @@ function App() {
               removeItem={removeItem}
             />
           }
+        />
+        <Route
+          path="/about"
+          element={<AboutPage />}
         />
       </Routes>
       <ChatBot cartItems={cartItems} addToCart={addToCart} />
