@@ -2,6 +2,8 @@
 
 This is a React-based e-commerce application that allows users to browse products, add them to a cart, manage quantities, and remove items. It also includes an **interactive rule-based chatbot** to assist users with gift ideas, tech gadgets, and cart information.
 
+[Demo](https://mini-project-84k4-k1fn5zjos-thomas-projects-da9c471e.vercel.app/)
+
 ## Features
 
 - Browse products with **image, name, category, price, description, and stock info**.
