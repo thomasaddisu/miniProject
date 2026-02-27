@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ChatBot from "./components/ChatBot";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const [cartItems, setCartItems] = useState(()=>{
@@ -78,6 +79,10 @@ function App() {
         <Route
           path="/about"
           element={<AboutPage />}
+        />
+            <Route
+          path="/Contact"
+          element={<ContactPage />}
         />
       </Routes>
       <ChatBot cartItems={cartItems} addToCart={addToCart} />

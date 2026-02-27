@@ -34,6 +34,12 @@ function Header({ cartItems = [] }) {
           >
             About
           </Link>
+          <Link
+            to="/contact"
+            className="text-gray-600 hover:text-yellow-600 font-medium transition"
+          >
+            Contact
+          </Link>
 
           <Link
             to="/cart-item"
